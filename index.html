@@ -2,13 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { background-color: #1a1a1a; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; padding: 20px; }
-        .container { background: #252525; padding: 30px; border-radius: 12px; width: 100%; max-width: 850px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .header { display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; color: #efefef; }
-        .quote-text { font-style: italic; font-size: 21px; line-height: 1.6; margin-bottom: 15px; color: #ffffff; text-align: center; min-height: 120px; display: flex; align-items: center; justify-content: center; font-weight: 400; }
-        .sub-text { font-size: 12px; color: #666; line-height: 1.5; text-align: center; border-top: 1px solid #333; padding-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
-        .diamond { margin: 0 15px; font-size: 20px; color: #00b4d8; }
+        /* FIX: Removed fixed height to prevent scrolling */
+        body { 
+            background-color: #1a1a1a; 
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 10px; /* Small padding for a clean edge */
+            display: flex;
+            justify-content: center;
+            overflow: hidden; /* Guarantees no scrollbars appear */
+        }
+        .container { 
+            background: #252525; 
+            padding: 25px; 
+            border-radius: 12px; 
+            width: 100%; 
+            max-width: 850px; 
+            border: 1px solid #333; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            border-left: 5px solid #00b4d8; /* Added a subtle blue ocean accent */
+        }
+        .header { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-weight: 700; 
+            font-size: 13px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 15px; 
+            color: #efefef; 
+        }
+        .quote-text { 
+            font-style: italic; 
+            font-size: 20px; 
+            line-height: 1.5; 
+            margin-bottom: 15px; 
+            color: #ffffff; 
+            text-align: center; 
+            /* Fixed height to keep it consistent without scrolling */
+            min-height: 100px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 400; 
+        }
+        .sub-text { 
+            font-size: 11px; 
+            color: #666; 
+            line-height: 1.5; 
+            text-align: center; 
+            border-top: 1px solid #333; 
+            padding-top: 15px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .diamond { margin: 0 12px; font-size: 18px; color: #00b4d8; }
     </style>
 </head>
 <body>
@@ -21,7 +74,6 @@
 
 <script>
     const quotes = [
-        /* --- THE MIXED POWER LIBRARY --- */
         "When you want to succeed as bad as you want to breathe, Ryan, then you'll be successful.",
         "Ryan, imagine the morning sun on the deck. Your daughters are waking you up, the chef has breakfast ready, and your wife is smiling.",
         "Ryan, don't cry to give up, cry to keep going. You're already in pain, get a reward from it!",
@@ -88,7 +140,6 @@
     }
 
     updateQuote();
-    // Refresh every hour just in case the tab stays open through a 12-hour transition
     setInterval(updateQuote, 3600000);
 </script>
 
