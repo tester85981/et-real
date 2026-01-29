@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { background-color: #1a1a1a; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; padding: 20px; }
+        .container { background: #252525; padding: 30px; border-radius: 12px; width: 100%; max-width: 850px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .header { display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; color: #efefef; }
+        .quote-text { font-style: italic; font-size: 21px; line-height: 1.6; margin-bottom: 15px; color: #ffffff; text-align: center; min-height: 120px; display: flex; align-items: center; justify-content: center; font-weight: 400; }
+        .sub-text { font-size: 12px; color: #666; line-height: 1.5; text-align: center; border-top: 1px solid #333; padding-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+        .diamond { margin: 0 15px; font-size: 20px; color: #00b4d8; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header"><span class="diamond">💎</span> Principle of the Day <span class="diamond">💎</span></div>
+    <div id="quote" class="quote-text"></div>
+    <div class="sub-text">ET Motivation • Yacht Life • Disney Legacy • Dad's Food Truck</div>
+</div>
+
+<script>
+    const quotes = [
+        /* --- THE MIXED POWER LIBRARY --- */
+        "When you want to succeed as bad as you want to breathe, Ryan, then you'll be successful.",
+        "Ryan, imagine the morning sun on the deck. Your daughters are waking you up, the chef has breakfast ready, and your wife is smiling.",
+        "Ryan, don't cry to give up, cry to keep going. You're already in pain, get a reward from it!",
+        "Every dollar you earn today, Ryan, is a brick in your Dad's food truck business. Build his dream while you build yours.",
+        "Pain is temporary, Ryan. It may last for a minute, or an hour, or a day, but if you quit, it lasts forever.",
+        "Ryan, the multi-million dollar Disney DVC isn't just a purchase—it's a lifetime of 'Welcome Home' for your 3 daughters.",
+        "Broke people sleep, Ryan. You got to be willing to sacrifice sleep to make that mega yacht a reality.",
+        "Imagine the chef bringing out those burgers and chicken fingers on the yacht, Ryan. The hard work makes the food taste like victory.",
+        "Ryan, stop being average. You are built for greatness. Execute with heart today so your wife can be proud tomorrow.",
+        "The crew on your future yacht will be kind and caring to your kids because YOU provided that life, Ryan. Build that kingdom.",
+        "Ryan, you will never ever be successful until you turn your pain into greatness.",
+        "Ryan, your 3 daughters are watching you. Show them what a man who loves his family can achieve through pure discipline.",
+        "I need you to look in the mirror, Ryan, and tell yourself: 'I am the one. I am the solution.'",
+        "Ryan, you have to be able at any moment to sacrifice what you are for what you will become.",
+        "The DVC is waiting, Ryan. The Yacht is waiting. Your Dad's food truck is waiting. Get. To. Work.",
+        "Ryan, if you're not where you want to be, it has everything to do with the fact that you're not making the sacrifice.",
+        "Visualize the quiet mornings on the water, Ryan. No stress, just breakfast with your girls and a wife who knows you kept your word.",
+        "No alarm clock needed, Ryan. The vision of that mega yacht wakes me up!",
+        "Ryan, what you do on your bad days determines how fast you get to the deck of that yacht.",
+        "Success is not a discount, Ryan. You pay full price today so your daughters can live a life with no price tags later.",
+        "Ryan, you cannot have a million-dollar dream with a minimum-wage work ethic. Level up for the family.",
+        "Every rep, every call, every task—it's all for the food truck, Ryan. Give your Dad the win he deserves.",
+        "Ryan, most people fail not because of a lack of talent, but because of a lack of consistency. Stay on the grind.",
+        "The burgers on the deck will taste like victory, Ryan. But you have to win the battle today first.",
+        "Ryan, I do not take constructive criticism from people who have never constructed anything. Build your yacht.",
+        "A king provides, Ryan. A king protects. A king builds a Disney legacy that lasts for generations.",
+        "Ryan, don't make a habit out of choosing what feels good over what's actually good for the mission.",
+        "Your future wife's pride is the ultimate fuel, Ryan. Build the life that makes her realize she married a giant.",
+        "Ryan, the only person that can stop you is you. Get out of your own way and dominate for those 3 daughters.",
+        "Knowledge isn't power, Ryan. Applied knowledge is the key to the yacht.",
+        "Ryan, you owe it to yourself to be the best version of you so your family can have the best version of life.",
+        "Stop the blame game, Ryan. Stop looking out the window and start looking in the mirror. The yacht is in there.",
+        "Ryan, be more intentional about where you allow your mind to go. Focus on the DVC, the Yacht, and the Win.",
+        "Life will grow you through what you go through, Ryan. The struggle is just the training for the success.",
+        "Ryan, for every level there is another devil. Be ready to fight for your daughters' future.",
+        "Don't wait for permission to be great, Ryan. Just be great. The crew is waiting to welcome you aboard.",
+        "Ryan, your relationships will either make you or break you. Surround yourself with people who see the yacht too.",
+        "Success is simple, Ryan, but it isn't easy. If it was easy, everybody would have a mega yacht.",
+        "Ryan, you have to be obsessed with your routine if you want to change your family's zip code.",
+        "I need you to be selfish on the dream piece, Ryan. Nobody is going to build that food truck for your Dad but YOU.",
+        "Ryan, what do you want? Don't leave the room until you know the name of that yacht.",
+        "Your feelings ain't going to get you anywhere, Ryan. Principles are what get you to Disney World.",
+        "Ryan, you will never get to where you want to be until you value your time like it's gold.",
+        "It's not how gifted you are, Ryan, it's how much willpower you have to stay in the game.",
+        "Ryan, you know you need to leave the 'average' life when your heart isn't in it anymore. Go for the elite.",
+        "You don't have a balance problem, Ryan. You have a priority problem. Put the family legacy first.",
+        "If you keep chopping the tree in the same spot, Ryan, it's going to fall. Consistency buys the yacht.",
+        "Ryan, you can't get to the next level if you don't invest in yourself. Be the man your daughters think you are.",
+        "Somebody is waiting on your greatness, Ryan. Your daughters, your wife, your Dad. Don't let them down.",
+        "Ryan, I'm intoxicated on success. You should be too. The view from the top is better than the view from the couch.",
+        "Only those who risk going too far, Ryan, can find out how far they can go. Sail that yacht past the horizon.",
+        "Ryan, I've got a dream that's worth more than my sleep. I've got a family that's worth more than my excuses."
+    ];
+
+    function updateQuote() {
+        const now = new Date();
+        const totalHours = Math.floor(now.getTime() / (1000 * 60 * 60));
+        const twelveHourPeriod = Math.floor(totalHours / 12);
+        
+        const quoteIndex = twelveHourPeriod % quotes.length;
+        const dailyQuote = quotes[quoteIndex];
+        
+        document.getElementById('quote').innerText = `"${dailyQuote}"`;
+    }
+
+    updateQuote();
+    // Refresh every hour just in case the tab stays open through a 12-hour transition
+    setInterval(updateQuote, 3600000);
+</script>
+
+</body>
+</html>
